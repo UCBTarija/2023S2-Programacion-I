@@ -18,4 +18,14 @@ public class VectorUtil {
         }
         System.out.println();
     }
+
+    public static int[] clonar(int original[]){
+        int clon[] = new int[original.length];
+        
+        for(int i=0; i<original.length; i++){
+            clon[i] = original[i];
+        }
+
+        return clon;
+    }
 }
