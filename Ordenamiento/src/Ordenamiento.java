@@ -13,7 +13,7 @@ public class Ordenamiento {
     }
 
     public void seleccion(int vector[]) {
-        
+
         int i, j, menor, pos, tmp;
         for (i = 0; i < vector.length - 1; i++) {
             menor = vector[i];
@@ -32,5 +32,19 @@ public class Ordenamiento {
         }
     }
 
+    public void burbuja(int vector[]) {
+        boolean cambio = true;
+        while (cambio) {
+            cambio = false;
+            for (int i = 0; i < vector.length - 1; i++) {
+                if(vector[i] > vector[i + 1]){
+                    int aux = vector[i];
+                    vector[i] = vector[i+1];
+                    vector[i+1] = aux;
+                    cambio = true;
+                }
+            }
+        }
+    }
 
 }
