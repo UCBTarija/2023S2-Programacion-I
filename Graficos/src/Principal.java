@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,19 +9,19 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class Principal extends JFrame implements ActionListener{
+public class Principal extends JFrame implements ActionListener{    
     
+    JTextField textField;
+    JTextArea area;
+
     Principal(){
-        this.setSize(700, 500);
         this.setVisible(true);
         this.setTitle("Prueba");
-        
-        //posición al centro
-        this.setLocationRelativeTo(null);
+        this.getContentPane().setBackground(Color.YELLOW);
+        this.setPreferredSize(new Dimension(700, 500));
 
         // finalizar programa al cerrar ventana
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         this.setLayout(null);
 
         JLabel titulo = new JLabel();
@@ -32,21 +33,28 @@ public class Principal extends JFrame implements ActionListener{
         boton.setText("Aceptar");
         boton.setBounds(10, 50, 100, 30);
         boton.addActionListener(this);
+        
         add(boton);
 
-        JTextField textField = new JTextField();
-        textField.setBounds(10, 100, 100, 50);
+        textField = new JTextField();
+        textField.setBounds(10, 100, 150, 30);
         add(textField);
 
-        JTextArea area = new JTextArea();
+        area = new JTextArea();
         area.setBounds(10, 150, 100, 100);
         add(area);
+
+        pack();
+
+        //posición al centro
+        this.setLocationRelativeTo(null);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        Propiedades prop = new Propiedades();
-        prop.setVisible(true);
+        String texto = textField.getText();
+        area.setText(texto);
     }
 
 }
